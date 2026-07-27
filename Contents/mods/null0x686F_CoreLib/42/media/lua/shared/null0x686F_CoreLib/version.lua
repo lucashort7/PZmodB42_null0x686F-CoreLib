@@ -4,12 +4,12 @@
 -- so we don't parse a build-number prefix), and no update popup yet -- there's
 -- no live Workshop URL to link to until this is actually published.
 
-if not _G.Null0x686FCoreLib then _G.Null0x686FCoreLib = {} end
+local Null0x686FCoreLib = require("null0x686F_CoreLib/core")
 
 local _tonumber = tonumber
 local _string_match = string.match
 
-local log = require("null0x686F_CoreLib/log").new("null0x686F_CoreLib", "info")
+local log = require("null0x686F_CoreLib/utils/log").new("null0x686F_CoreLib", "info")
 
 local Version = {}
 
@@ -48,6 +48,6 @@ function Version.ensureVersion(major, minor, patch)
   return result
 end
 
-_G.Null0x686FCoreLib.Version = Version
+Null0x686FCoreLib.Version = Version
 
 return Version

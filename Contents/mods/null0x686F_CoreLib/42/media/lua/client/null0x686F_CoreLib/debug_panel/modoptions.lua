@@ -1,5 +1,5 @@
-local cfg = require("null0x686F_CoreLib/cfg")
-local debug_panel = require("null0x686F_CoreLib/ui/debug_panel")
+local cfg = require("null0x686F_CoreLib/debug_panel/cfg")
+local debug_panel = require("null0x686F_CoreLib/debug_panel/window")
 
 local _mod_id = "null0x686F_CoreLib"
 local _mod_name = "null0x686F CoreLib"

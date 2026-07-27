@@ -3,8 +3,7 @@ require("ISUI/ISPanel")
 require("ISUI/ISButton")
 require("ISUI/ISLabel")
 
-local cfg = require("null0x686F_CoreLib/cfg")
-local core_api = require("null0x686F_CoreLib/core")
+local tab_registry = require("null0x686F_CoreLib/debug_panel/tab_registry")
 
 local _ipairs = ipairs
 local _pairs = pairs
@@ -76,7 +75,7 @@ function Null0x686FDebugPanel:build_sidebar_rail()
   local pad = 6
   local curr_y = 10
 
-  local registered_tabs = (_G.Null0x686FCoreLib and _G.Null0x686FCoreLib.tabs) or {}
+  local registered_tabs = tab_registry.get_tabs() or {}
   local grouped_tabs = {
     NULL0X686F = {},
     SYSTEM = {}
