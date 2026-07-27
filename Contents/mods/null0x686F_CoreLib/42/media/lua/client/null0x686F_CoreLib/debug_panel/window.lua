@@ -221,13 +221,6 @@ local function toggle_debug_panel()
   end
 end
 
-local function on_fill_world_context_menu(player, context, worldobjects, test)
-  if isDebugEnabled() then
-    context:addOption("null0x686F Global Control Panel", nil, toggle_debug_panel)
-  end
-end
-Events.OnFillWorldObjectContextMenu.Add(on_fill_world_context_menu)
-
 return {
   toggle = toggle_debug_panel,
 }
