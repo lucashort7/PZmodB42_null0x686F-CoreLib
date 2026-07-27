@@ -5,6 +5,7 @@ local _mod_id = "null0x686F_CoreLib"
 local _mod_name = "null0x686F CoreLib"
 
 local function _init_mod_options()
+  if not isDebugEnabled() then return end
   if not (PZAPI and PZAPI.ModOptions and PZAPI.ModOptions.create) then
     return
   end
