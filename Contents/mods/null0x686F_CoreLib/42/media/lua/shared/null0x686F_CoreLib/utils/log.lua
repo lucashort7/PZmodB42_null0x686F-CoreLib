@@ -9,7 +9,7 @@
 -- every existing call site in the suite uses dot-call, not colon-call.
 --
 
-if not _G.Null0x686FCoreLib then _G.Null0x686FCoreLib = {} end
+local Null0x686FCoreLib = require("null0x686F_CoreLib/core")
 
 local _tostring = tostring
 local _ipairs = ipairs
@@ -112,9 +112,9 @@ local function _log_new_file_logger(mod_tag, level_getter, filename)
   return _new(mod_tag, level_getter, filename)
 end
 
-_G.Null0x686FCoreLib.Log = {
+Null0x686FCoreLib.Log = {
   new = _log_new,
   newFileLogger = _log_new_file_logger,
 }
 
-return _G.Null0x686FCoreLib.Log
+return Null0x686FCoreLib.Log
