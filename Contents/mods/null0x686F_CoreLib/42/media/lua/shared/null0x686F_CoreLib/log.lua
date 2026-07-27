@@ -1,15 +1,15 @@
 --
--- log.lua (HortWiz_Core shared logger)
+-- log.lua (null0x686F_CoreLib shared logger)
 --
--- unified leveled logger for every HortWiz mod, replacing the per-mod copies
--- that had drifted into incompatible signatures. generalizes hortWiz_QoL's
+-- unified leveled logger for every null0x686F mod, replacing the per-mod copies
+-- that had drifted into incompatible signatures. generalizes null0x686F_QoL's
 -- original varargs implementation into a per-mod factory.
 --
 -- returns a plain table of closures (log.debug(...), not log:debug(...)) --
 -- every existing call site in the suite uses dot-call, not colon-call.
 --
 
-if not _G.HortWizCore then _G.HortWizCore = {} end
+if not _G.Null0x686FCoreLib then _G.Null0x686FCoreLib = {} end
 
 local _tostring = tostring
 local _ipairs = ipairs
@@ -71,7 +71,7 @@ local function _dump_to_file(filename, line)
   writer:close()
 end
 
--- mod_tag: shown in the bracketed prefix, e.g. "HortWiz_QoL"
+-- mod_tag: shown in the bracketed prefix, e.g. "null0x686F_QoL"
 -- level_getter: function() -> level string, OR a static level string
 -- dump_filename: optional; when set, lines are also appended to this file
 --                (under Zomboid/Lua/) while the logger's level is "debug"
@@ -112,9 +112,9 @@ local function _log_new_file_logger(mod_tag, level_getter, filename)
   return _new(mod_tag, level_getter, filename)
 end
 
-_G.HortWizCore.Log = {
+_G.Null0x686FCoreLib.Log = {
   new = _log_new,
   newFileLogger = _log_new_file_logger,
 }
 
-return _G.HortWizCore.Log
+return _G.Null0x686FCoreLib.Log

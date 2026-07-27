@@ -8,8 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Global Debug Panel (`HortWizDebugPanel`) with sidebar rail and plugin API (`_G.HortWizCore.registerTab`).
-- Shared leveled logger (`_G.HortWizCore.Log.new`/`.newFileLogger`).
-- Shared tool-finder utility (`_G.HortWizCore.Tools.find_tool_by_tag`).
+- Global Debug Panel (`Null0x686FDebugPanel`) with sidebar rail and plugin API (`_G.Null0x686FCoreLib.registerTab`).
+- Shared leveled logger (`_G.Null0x686FCoreLib.Log.new`/`.newFileLogger`).
+- Shared tool-finder utility (`_G.Null0x686FCoreLib.Tools.find_tool_by_tag`).
 
 [Unreleased]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/commits/main

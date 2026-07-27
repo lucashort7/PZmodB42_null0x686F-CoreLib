@@ -1,8 +1,8 @@
-local cfg = require("hortWiz_Core/cfg")
-local debug_panel = require("hortWiz_Core/ui/debug_panel")
+local cfg = require("null0x686F_CoreLib/cfg")
+local debug_panel = require("null0x686F_CoreLib/ui/debug_panel")
 
-local _mod_id = "hortWiz_Core"
-local _mod_name = "HortWiz Core"
+local _mod_id = "null0x686F_CoreLib"
+local _mod_name = "null0x686F CoreLib"
 
 local function _init_mod_options()
   if not (PZAPI and PZAPI.ModOptions and PZAPI.ModOptions.create) then

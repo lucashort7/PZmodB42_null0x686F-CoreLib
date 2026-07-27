@@ -2,8 +2,8 @@ if debugScenarios == nil then
   debugScenarios = {}
 end
 
-debugScenarios.HortWizQA = {
-  name = "HortWiz QA Testing Suite",
+debugScenarios.Null0x686FQA = {
+  name = "null0x686F QA Testing Suite",
   forceLaunch = false,
   startLoc = { x = 10645, y = 10437, z = 0 },
 

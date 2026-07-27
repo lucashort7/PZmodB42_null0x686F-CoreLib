@@ -3,8 +3,8 @@ require("ISUI/ISPanel")
 require("ISUI/ISButton")
 require("ISUI/ISLabel")
 
-local cfg = require("hortWiz_Core/cfg")
-local core_api = require("hortWiz_Core/core")
+local cfg = require("null0x686F_CoreLib/cfg")
+local core_api = require("null0x686F_CoreLib/core")
 
 local _ipairs = ipairs
 local _pairs = pairs
@@ -12,7 +12,7 @@ local _type = type
 local _table_insert = table.insert
 local _string_format = string.format
 
-HortWizDebugPanel = ISCollapsableWindow:derive("HortWizDebugPanel")
+Null0x686FDebugPanel = ISCollapsableWindow:derive("Null0x686FDebugPanel")
 
 local _THEME = {
   windowBg = { r = 0.08, g = 0.08, b = 0.08, a = 0.95 },
@@ -26,23 +26,23 @@ local _THEME = {
   closeBtn = { r = 0.8, g = 0.15, b = 0.15, a = 0.95 }
 }
 
-function HortWizDebugPanel:initialise()
+function Null0x686FDebugPanel:initialise()
   ISCollapsableWindow.initialise(self)
-  self.title = "HortWiz Global Control Panel"
+  self.title = "null0x686F Global Control Panel"
   self.resizable = false
 
   self.tabs = {}
   self.activeTab = "Context Cleaner"
 end
 
-function HortWizDebugPanel:createChildren()
+function Null0x686FDebugPanel:createChildren()
   ISCollapsableWindow.createChildren(self)
 
   local th = self:titleBarHeight()
   local sideW = 140
   self.sidebarW = sideW
 
-  self.close_btn = ISButton:new(self.width - 24, 4, 18, 18, "X", self, HortWizDebugPanel.close)
+  self.close_btn = ISButton:new(self.width - 24, 4, 18, 18, "X", self, Null0x686FDebugPanel.close)
   self.close_btn.internal = "CLOSE"
   self.close_btn.anchorTop = true
   self.close_btn.anchorRight = true
@@ -70,26 +70,26 @@ function HortWizDebugPanel:createChildren()
   self:build_sidebar_rail()
 end
 
-function HortWizDebugPanel:build_sidebar_rail()
+function Null0x686FDebugPanel:build_sidebar_rail()
   local sideW = self.sidebarW
   local btn_h = 24
   local pad = 6
   local curr_y = 10
 
-  local registered_tabs = (_G.HortWizCore and _G.HortWizCore.tabs) or {}
+  local registered_tabs = (_G.Null0x686FCoreLib and _G.Null0x686FCoreLib.tabs) or {}
   local grouped_tabs = {
-    HORTWIZ = {},
+    NULL0X686F = {},
     SYSTEM = {}
   }
 
   for _, tab_data in _ipairs(registered_tabs) do
-    local cat = tab_data.category or "HORTWIZ"
+    local cat = tab_data.category or "NULL0X686F"
     if not grouped_tabs[cat] then grouped_tabs[cat] = {} end
     _table_insert(grouped_tabs[cat], tab_data)
   end
 
   self.sidebar.rows = {}
-  local categories = { "HORTWIZ", "SYSTEM" }
+  local categories = { "NULL0X686F", "SYSTEM" }
   local first_tab_name = nil
 
   for _, cat_name in _ipairs(categories) do
@@ -142,10 +142,10 @@ function HortWizDebugPanel:build_sidebar_rail()
   end
 
   self.sidebar.onMouseUp = function(s, x, y)
-    print(_string_format("[HortWizCore] sidebar.onMouseUp at x=%d, y=%d", x, y))
+    print(_string_format("[Null0x686FCoreLib] sidebar.onMouseUp at x=%d, y=%d", x, y))
     for _, row in _ipairs(s.rows) do
       if row.kind == "item" and y >= row.y and y < row.y + row.h then
-        print(_string_format("[HortWizCore] HIT TEST MATCH -> '%s'", row.name))
+        print(_string_format("[Null0x686FCoreLib] HIT TEST MATCH -> '%s'", row.name))
         win:select_tab(row.name)
         return true
       end
@@ -161,7 +161,7 @@ function HortWizDebugPanel:build_sidebar_rail()
   end
 end
 
-function HortWizDebugPanel:select_tab(tab_name)
+function Null0x686FDebugPanel:select_tab(tab_name)
   if not tab_name then return end
 
   for name, panel in _pairs(self.tabs) do
@@ -176,12 +176,12 @@ function HortWizDebugPanel:select_tab(tab_name)
   self.activeTab = tab_name
 end
 
-function HortWizDebugPanel:close()
+function Null0x686FDebugPanel:close()
   self:setVisible(false)
   self:removeFromUIManager()
 end
 
-function HortWizDebugPanel:new(x, y, width, height, player)
+function Null0x686FDebugPanel:new(x, y, width, height, player)
   local o = ISCollapsableWindow:new(x, y, width, height)
   setmetatable(o, self)
   self.__index = self
@@ -201,7 +201,7 @@ local function toggle_debug_panel()
     local x = (getCore():getScreenWidth() / 2) - (w / 2)
     local y = (getCore():getScreenHeight() / 2) - (h / 2)
 
-    _debug_panel_instance = HortWizDebugPanel:new(x, y, w, h)
+    _debug_panel_instance = Null0x686FDebugPanel:new(x, y, w, h)
     _debug_panel_instance:initialise()
     _debug_panel_instance:instantiate()
     _debug_panel_instance:addToUIManager()
@@ -214,7 +214,7 @@ local function toggle_debug_panel()
       local h = 360
       local x = (getCore():getScreenWidth() / 2) - (w / 2)
       local y = (getCore():getScreenHeight() / 2) - (h / 2)
-      _debug_panel_instance = HortWizDebugPanel:new(x, y, w, h)
+      _debug_panel_instance = Null0x686FDebugPanel:new(x, y, w, h)
       _debug_panel_instance:initialise()
       _debug_panel_instance:instantiate()
       _debug_panel_instance:addToUIManager()
@@ -224,7 +224,7 @@ end
 
 local function on_fill_world_context_menu(player, context, worldobjects, test)
   if isDebugEnabled() then
-    context:addOption("HortWiz Global Control Panel", nil, toggle_debug_panel)
+    context:addOption("null0x686F Global Control Panel", nil, toggle_debug_panel)
   end
 end
 Events.OnFillWorldObjectContextMenu.Add(on_fill_world_context_menu)

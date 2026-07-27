@@ -1,4 +1,4 @@
-name: Release HortWiz Core
+name: Release null0x686F CoreLib
 
 on:
   push:
@@ -16,10 +16,10 @@ jobs:
       - name: Zip Mod Folder
         run: |
           mkdir release_build
-          zip -r release_build/HortWiz_Core.zip Contents/
+          zip -r release_build/null0x686F_CoreLib.zip Contents/
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: release_build/HortWiz_Core.zip
+          files: release_build/null0x686F_CoreLib.zip
           generate_release_notes: true

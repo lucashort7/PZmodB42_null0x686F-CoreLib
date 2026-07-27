@@ -1,4 +1,4 @@
-if not _G.HortWizCore then _G.HortWizCore = {} end
+if not _G.Null0x686FCoreLib then _G.Null0x686FCoreLib = {} end
 
 -- tags: a single ItemTag value, or an array of them (matches if the item has ANY of them)
 local function _item_has_any_tag(item, tags)
@@ -22,8 +22,8 @@ local function _find_tool_by_tag(player, tags)
   end)
 end
 
-_G.HortWizCore.Tools = {
+_G.Null0x686FCoreLib.Tools = {
   find_tool_by_tag = _find_tool_by_tag,
 }
 
-return _G.HortWizCore.Tools
+return _G.Null0x686FCoreLib.Tools
