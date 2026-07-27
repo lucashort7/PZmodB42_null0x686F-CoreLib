@@ -7,9 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
-- Global Debug Panel (`Null0x686FDebugPanel`) with sidebar rail and plugin API (`_G.Null0x686FCoreLib.registerTab`).
-- Shared leveled logger (`_G.Null0x686FCoreLib.Log.new`/`.newFileLogger`).
-- Shared tool-finder utility (`_G.Null0x686FCoreLib.Tools.find_tool_by_tag`).
+## [0.1.0] - 2026-07-27
 
-[Unreleased]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/commits/main
+### Added
+
+-   Global Debug Panel (`Null0x686FDebugPanel`) with sidebar rail and plugin API (`_G.Null0x686FCoreLib.registerTab`).
+-   Shared leveled logger (`_G.Null0x686FCoreLib.Log.new`/`.newFileLogger`).
+-   Shared tool-finder utility (`_G.Null0x686FCoreLib.Tools.find_tool_by_tag`).
+
+[Unreleased]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.1.0...HEAD
+
+[0.1.0]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/34a1f634854c11e8cfa6e1c1cbdca04e248e90b1...v0.1.0
