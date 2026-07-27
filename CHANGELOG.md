@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Removed the debug-only "null0x686F Global Control Panel" world context menu entry — Debug Panel now opens exclusively via the `Core_DebugPanelKey` keybind.
+- Gated the "Toggle Global Debug Panel" Mod Options entry behind Debug Mode — was previously showing for every player of any mod requiring CoreLib.
+
 ## [0.1.0] - 2026-07-27
 
 ### Added
