@@ -3,7 +3,7 @@ name: Release null0x686F CoreLib
 on:
   push:
     tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+    - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 permissions:
   contents: write
@@ -13,30 +13,40 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Zip Mod Folder
-        run: |
-          mkdir release_build
-          zip -r release_build/null0x686F_CoreLib.zip Contents/
+    - name: Zip Mod Folder
+      run: |
+        mkdir release_build
+        zip -r release_build/null0x686F_CoreLib.zip Contents/
 
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: release_build/null0x686F_CoreLib.zip
-          generate_release_notes: true
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: release_build/null0x686F_CoreLib.zip
+        generate_release_notes: true
 
-      - name: Move floating 'latest' tag to this release
-        run: |
-          git tag -f latest
-          git push origin latest --force
+    - name: Move floating 'latest' tag to this release
+      run: |
+        git tag -f latest
+        git push origin latest --force
 
-      - name: Update 'latest' release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: latest
-          name: Latest Release
-          files: release_build/null0x686F_CoreLib.zip
-          generate_release_notes: false
-          prerelease: false
+    - name: Update 'latest' release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: latest
+        name: Latest Release
+        files: release_build/null0x686F_CoreLib.zip
+        generate_release_notes: false
+        prerelease: false
+
+    - name: Publish to Steam Workshop
+      uses: m00nl1ght-dev/steam-workshop-deploy@v1
+      with:
+        username: ${{ secrets.STEAM_USERNAME }}
+        configVdf: ${{ secrets.STEAM_CONFIG_VDF }}
+        appId: '108600' # Replace with your Game's Steam App ID (e.g., 107410 for Arma 3)
+        publishedFileId: '3772694554' # Replace with your unique Workshop Item ID
+        path: '.' # The relative path in your repo containing the mod files
+        changeNote: 'Automatically updated via GitHub Actions build ${{ github.run_number }}'
