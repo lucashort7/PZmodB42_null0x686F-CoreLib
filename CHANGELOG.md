@@ -5,8 +5,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-
 ## [0.1.3] - 2026-07-28
 
 ### Added
@@ -35,14 +33,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Shared leveled logger (`_G.Null0x686FCoreLib.Log.new`/`.newFileLogger`).
 -   Shared tool-finder utility (`_G.Null0x686FCoreLib.Tools.find_tool_by_tag`).
 
-[Unreleased]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.1.3...HEAD
-
-[0.1.3]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.1.3...v0.1.3
-
-[0.1.3]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.1.2...v0.1.3
-
-[0.1.2]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.1.1...v0.1.2
-
-[0.1.1]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.1.0...v0.1.1
-
-[0.1.0]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/34a1f634854c11e8cfa6e1c1cbdca04e248e90b1...v0.1.0
