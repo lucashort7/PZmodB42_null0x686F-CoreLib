@@ -7,10 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-07-28
+
 ### Added
 
-- Steam Workshop m00nl1ght-dev/steam-workshop-deploy@v3 action to `release.yml`.
-- .workshopignore file.
+-   Steam Workshop m00nl1ght-dev/steam-workshop-deploy@v3 action to `release.yml`.
+-   .workshopignore file.
 
 ## [0.1.2] - 2026-07-27
 
@@ -34,6 +36,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Shared tool-finder utility (`_G.Null0x686FCoreLib.Tools.find_tool_by_tag`).
 
 [Unreleased]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.1.3...HEAD
+
+[0.1.3]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.1.3...v0.1.3
 
 [0.1.3]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.1.2...v0.1.3
 
