@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.3] - 2026-07-28
+### Added
+
+- Steam Workshop m00nl1ght-dev/steam-workshop-deploy@v3 action to `release.yml`.
+- .workshopignore file.
 
 ## [0.1.2] - 2026-07-27
 
