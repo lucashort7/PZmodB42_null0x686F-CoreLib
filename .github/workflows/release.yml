@@ -20,8 +20,6 @@ jobs:
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
-      # temporary, delete after confirming the real output key on the first live run:
-      - run: echo '${{ toJSON(steps.rp.outputs) }}'
 
   publish:
     needs: release-please
