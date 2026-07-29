@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.1](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.2.0...v0.2.1) (2026-07-29)
+
+
+### Miscellaneous Chores
+
+* force release for Workshop preview test ([e9345be](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/commit/e9345be3e6a9e60d6a8a04f9fe94185947ab3b91))
+
 ## [0.2.0](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.1.3...v0.2.0) (2026-07-28)
 
 
