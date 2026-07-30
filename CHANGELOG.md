@@ -5,12 +5,40 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.2.3](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.2.2...v0.2.3) (2026-07-29)
+
+
+### Miscellaneous Chores
+
+* test Contents-only Workshop upload path fix ([7b1eab7](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/commit/7b1eab76298a0c3893c94296382f3d6faeed484b))
+
+## [0.2.2](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.2.1...v0.2.2) (2026-07-29)
+
+
+### Miscellaneous Chores
+
+* test previewFile support via forked action ([4c933f4](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/commit/4c933f425e772d0923b24dccb6be85deb3d460e4))
+
+## [0.2.1](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.2.0...v0.2.1) (2026-07-29)
+
+
+### Miscellaneous Chores
+
+* force release for Workshop preview test ([e9345be](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/commit/e9345be3e6a9e60d6a8a04f9fe94185947ab3b91))
+
+## [0.2.0](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.1.3...v0.2.0) (2026-07-28)
+
+
+### Features
+
+* migrate to release-please + reusable Steam Workshop deploy ([f5f0f48](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/commit/f5f0f48579f2e7c1163b22a36b18e5ffd2d2a993))
+
+## [0.1.3] - 2026-07-28
 
 ### Added
 
-- Steam Workshop m00nl1ght-dev/steam-workshop-deploy@v3 action to `release.yml`.
-- .workshopignore file.
+-   Steam Workshop m00nl1ght-dev/steam-workshop-deploy@v3 action to `release.yml`.
+-   .workshopignore file.
 
 ## [0.1.2] - 2026-07-27
 
@@ -32,13 +60,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Global Debug Panel (`Null0x686FDebugPanel`) with sidebar rail and plugin API (`_G.Null0x686FCoreLib.registerTab`).
 -   Shared leveled logger (`_G.Null0x686FCoreLib.Log.new`/`.newFileLogger`).
 -   Shared tool-finder utility (`_G.Null0x686FCoreLib.Tools.find_tool_by_tag`).
-
-[Unreleased]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.1.3...HEAD
-
-[0.1.3]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.1.2...v0.1.3
-
-[0.1.2]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.1.1...v0.1.2
-
-[0.1.1]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.1.0...v0.1.1
-
-[0.1.0]: https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/34a1f634854c11e8cfa6e1c1cbdca04e248e90b1...v0.1.0
