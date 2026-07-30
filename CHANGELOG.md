@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.2.3...v0.3.0) (2026-07-30)
+
+
+### Features
+
+* vendor PZAPI ModOptions apply/dirty-focus patch ([#17](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/issues/17)) ([d3ad344](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/commit/d3ad344707ded727f0af98850002fa990ddf7ffb))
+* vendor PZAPI ModOptions apply/dirty-focus patch ([#17](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/issues/17)) ([465ae3d](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/commit/465ae3d2fc1103e2212a5799bca761a60a40a749))
+
 ## [0.2.3](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.2.2...v0.2.3) (2026-07-29)
 
 
