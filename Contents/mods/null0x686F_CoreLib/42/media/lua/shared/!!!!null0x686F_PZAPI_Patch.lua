@@ -28,7 +28,10 @@ if not PZAPI or not PZAPI.ModOptions then return end
 if _G.__Null0x686FCoreLib_PZAPIPatched then return end
 _G.__Null0x686FCoreLib_PZAPIPatched = true
 
-local log = require("null0x686F_CoreLib/utils/log").new("null0x686F_CoreLib/PZAPIPatch", "info")
+-- "debug" level (not the usual "info" default) + file dump so this patch's
+-- confirmation line is actually verifiable during QA -- print() alone was
+-- confirmed (2026-07-30) to not reliably reach console.txt mid-session.
+local log = require("null0x686F_CoreLib/utils/log").newFileLogger("null0x686F_CoreLib/PZAPIPatch", "debug", "null0x686F_CoreLib_debug.log")
 
 local original_save = PZAPI.ModOptions.save
 
