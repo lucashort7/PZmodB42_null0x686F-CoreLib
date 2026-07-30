@@ -73,5 +73,5 @@ function PZAPI.ModOptions:save()
     end
   end
 
-  log.debug("PZAPI.ModOptions:save() patched -- live UI sync + apply() dispatched")
+  log.info("PZAPI.ModOptions:save() patched -- live UI sync + apply() dispatched")
 end
