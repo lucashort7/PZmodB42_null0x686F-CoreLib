@@ -32,6 +32,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=3698931252
 
 local function _apply_patch()
   if not PZAPI or not PZAPI.ModOptions then return end
+  -- lazy init, but logically, it should never happen
   if _G.__Null0x686FCoreLib_PZAPIPatched then return end
   _G.__Null0x686FCoreLib_PZAPIPatched = true
 
@@ -89,5 +90,5 @@ local function _apply_patch()
   log.info("null0x686F_CoreLib PZAPI patch installed")
 end
 
+-- guarantee loading after boot
 Events.OnGameBoot.Add(_apply_patch)
-_apply_patch()
