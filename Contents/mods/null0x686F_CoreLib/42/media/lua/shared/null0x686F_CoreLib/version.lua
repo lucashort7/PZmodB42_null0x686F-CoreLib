@@ -33,8 +33,8 @@ function Version.compareVersion(major, minor, patch)
   return "compatible"
 end
 
--- TODO: once published to Workshop, add a modal popup with an update link
--- like Starlit's Version.ensureVersion does, instead of just logging.
+-- a mismatch is only logged, so a player never learns why the mod misbehaves.
+-- showing a modal with an update link instead is tracked in issue #22.
 function Version.ensureVersion(major, minor, patch)
   local result = Version.compareVersion(major, minor, patch)
 
