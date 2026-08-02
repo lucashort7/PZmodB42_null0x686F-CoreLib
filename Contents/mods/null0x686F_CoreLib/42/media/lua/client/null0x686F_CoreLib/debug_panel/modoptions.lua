@@ -17,6 +17,13 @@ local function _init_mod_options()
 end
 
 local function on_key_pressed(key)
+  -- the ModOptions entry above is gated on debug mode, but this handler was
+  -- not: outside debug the keybind is never registered, so current_hotkey fell
+  -- back to cfg's default and Insert opened the developer panel in a normal
+  -- game. gate the handler on the same condition as the option that configures
+  -- it.
+  if not isDebugEnabled() then return end
+
   local current_hotkey = cfg.DEBUG_PANEL.hotkey
 
   if PZAPI and PZAPI.ModOptions and PZAPI.ModOptions.getOptions then
