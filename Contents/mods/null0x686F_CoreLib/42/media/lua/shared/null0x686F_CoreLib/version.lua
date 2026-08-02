@@ -16,10 +16,14 @@ local Version = {}
 local mod_info = getModInfoByID("null0x686F_CoreLib")
 Version.VERSION_STRING = mod_info and mod_info:getModVersion() or "0.0.0"
 
-local major, minor, patch = _string_match(Version.VERSION_STRING, "(%d+)%.(%d+)%.(%d+)")
-Version.MAJOR = _tonumber(major) or 0
-Version.MINOR = _tonumber(minor) or 0
-Version.PATCH = _tonumber(patch) or 0
+-- named "own_" because the functions below take major/minor/patch parameters
+-- meaning the opposite thing -- the version a *consumer* requires. same three
+-- words, two directions; keeping both as plain `major` shadowed one with the
+-- other and made compareVersion's body ambiguous to read.
+local own_major, own_minor, own_patch = _string_match(Version.VERSION_STRING, "(%d+)%.(%d+)%.(%d+)")
+Version.MAJOR = _tonumber(own_major) or 0
+Version.MINOR = _tonumber(own_minor) or 0
+Version.PATCH = _tonumber(own_patch) or 0
 
 -- compares the current CoreLib version to the version a dependent mod was
 -- built against. returns "toolow" | "toohigh" | "compatible".
@@ -33,8 +37,8 @@ function Version.compareVersion(major, minor, patch)
   return "compatible"
 end
 
--- TODO: once published to Workshop, add a modal popup with an update link
--- like Starlit's Version.ensureVersion does, instead of just logging.
+-- a mismatch is only logged, so a player never learns why the mod misbehaves.
+-- showing a modal with an update link instead is tracked in issue #22.
 function Version.ensureVersion(major, minor, patch)
   local result = Version.compareVersion(major, minor, patch)
 

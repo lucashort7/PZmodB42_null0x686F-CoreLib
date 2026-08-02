@@ -39,7 +39,7 @@ local function _apply_patch()
   -- "debug" level (not the usual "info" default) + file dump so this patch's
   -- confirmation lines are actually verifiable during QA -- print() alone was
   -- confirmed (2026-07-30) to not reliably reach console.txt mid-session.
-  local log = require("null0x686F_CoreLib/utils/log").newFileLogger("null0x686F_CoreLib/PZAPIPatch", "debug", "null0x686F_CoreLib_debug.log")
+  local log = require("null0x686F_CoreLib/utils/log").newFileLogger("null0x686F_CoreLib/PZAPIPatch", "debug")
 
   local original_save = PZAPI.ModOptions.save
 
