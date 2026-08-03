@@ -8,9 +8,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.4.0](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.3.0...v0.4.0) (2026-08-03)
 
 
-### Features
+### Bug Fixes
 
-* luacheck gate and singlefile logger ([#25](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/issues/25)) ([23c5732](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/commit/23c573297eb2e0965b388370429de05406fb07ba))
+* **debug_panel:** gate the hotkey on debug mode, like the option that sets it ([#24](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/issues/24)) ([851eb05](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/commit/851eb05301c34922c93419d8a74fcccd06a47577))
+
+### Performance Improvements
+
+* **log:** append instead of rewriting the whole file per line [AGGY-0018] ([#23](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/issues/23)) ([f838104](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/commit/f838104add64a579bceb17f483dad27bb66adedb))
+
+### Code Refactoring
+
+* clean unnecessary calls ([ec88954](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/commit/ec8895413456d98cfb9b321cd103f628cd5e5dce))
+
+### Documentation
+
+* explain PZAPI ModOptions patch load-order bug and fix ([6ee0bbb](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/commit/6ee0bbb5d89c3a01512e6f225ccd3fb142f24570))
+
+### Continuous Integration
+
+* add luacheck gate [AGGY-0016] ([#21](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/issues/21)) ([3b30d8e](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/commit/3b30d8e104b20807208fc89819b13de15d84616e))
+
+### Miscellaneous Chores
+
+* remove per-repo sync_to_workshop.ps1, superseded by suite/scripts ([5b0cd18](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/commit/5b0cd186da2647002dd080371928cb9d7ac64789))
 
 ## [0.3.0](https://github.com/lucashort7/PZmodB42_null0x686F-CoreLib/compare/v0.2.3...v0.3.0) (2026-07-30)
 
