@@ -47,35 +47,30 @@ local function _format_args(...)
   return _table_concat(t, " ")
 end
 
--- dumps every line to Zomboid/Lua/<filename> -- a predictable, greppable
--- session log, since console.txt/DebugLog.txt have proven unreliable to
--- fetch mid-session. getFileWriter's append/overwrite semantics aren't
--- reliably confirmed, so read the existing content ourselves and rewrite it
--- plus the new line -- guarantees accumulation regardless of what the
--- native flag actually does.
-local function _dump_to_file(filename, line)
-  local existing = ""
-  local reader = getFileReader(filename, false)
-  if reader then
-    local l = reader:readLine()
-    while l do
-      existing = existing .. l .. "\r\n"
-      l = reader:readLine()
-    end
-    reader:close()
-  end
+-- one shared file for the whole suite, not one per mod: every line already
+-- carries its [mod_tag], and a single timeline is what makes cross-mod
+-- causality readable -- the CoreLib-then-consumer ordering that the
+-- OnEquipPrimary double-dispatch bug required reading. four separate files
+-- means reconstructing that order by eye.
+local DUMP_FILE = "null0x686F/suite.log"
 
-  local writer = getFileWriter(filename, true, false)
+-- getFileWriter's third parameter is append: true writes after the file's
+-- current contents, false erases them. this used to pass false and
+-- compensate by reading the whole file back and rewriting it plus the new
+-- line -- O(n^2) in line count, with the concatenation allocating on every
+-- call. real append, so the cost is constant per line.
+local function _dump_to_file(filename, line)
+  local writer = getFileWriter(filename, true, true)
   if not writer then return end
-  writer:write(existing .. line .. "\r\n")
+  writer:write(line .. "\r\n")
   writer:close()
 end
 
 -- mod_tag: shown in the bracketed prefix, e.g. "null0x686F_QoL"
 -- level_getter: function() -> level string, OR a static level string
--- dump_filename: optional; when set, lines are also appended to this file
---                (under Zomboid/Lua/) while the logger's level is "debug"
-local function _new(mod_tag, level_getter, dump_filename)
+-- dump_to_file: when true, lines are also appended to the shared suite log
+--               while the logger's level is "debug"
+local function _new(mod_tag, level_getter, dump_to_file)
   local logger = {
     level = nil, -- public mutable override, takes priority over level_getter
   }
@@ -95,8 +90,8 @@ local function _new(mod_tag, level_getter, dump_filename)
       local line = _string_format("[%s - %s] [%s] %s", name:upper(), _os_date("%Y-%m-%d %H:%M:%S"), mod_tag, msg)
       _print(line)
 
-      if dump_filename and current == "debug" then
-        _dump_to_file(dump_filename, line)
+      if dump_to_file and current == "debug" then
+        _dump_to_file(DUMP_FILE, line)
       end
     end
   end
@@ -105,11 +100,13 @@ local function _new(mod_tag, level_getter, dump_filename)
 end
 
 local function _log_new(mod_tag, level_getter)
-  return _new(mod_tag, level_getter, nil)
+  return _new(mod_tag, level_getter, false)
 end
 
-local function _log_new_file_logger(mod_tag, level_getter, filename)
-  return _new(mod_tag, level_getter, filename)
+-- the filename parameter this used to take is gone: every mod now writes to
+-- the same DUMP_FILE, so letting each caller name its own defeats the point.
+local function _log_new_file_logger(mod_tag, level_getter)
+  return _new(mod_tag, level_getter, true)
 end
 
 Null0x686FCoreLib.Log = {
